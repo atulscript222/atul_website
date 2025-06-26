@@ -1,0 +1,679 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000;
+    color: #E6FFFA;
+    max-width: 100%;
+    overflow-x: hidden;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* Fade-in effect for the whole page */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Base Styles remain the same */
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: 50px 0;
+    animation: slideDown 2s ease-out;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typing and Deleting Effect */
+.animated-header {
+    font-size: 48px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #E6FFFA;
+    display: inline-block;
+    color: #E6FFFA;
+    width: 22ch;
+    /* Adjust the width based on the length of the text */
+    text-align: center;
+    animation: typing 4s steps(22) 1s infinite, deleting 4s steps(22) 4s infinite;
+}
+
+@media (max-width:500px) {
+    .animated-header{
+        font-size: 1.8rem;
+        /* width: 80vw !important; */
+    /* white-space: wrap; */
+    /* padding-right: 3rem; */
+    }
+    
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 22ch;
+    }
+}
+
+@keyframes deleting {
+    50% {
+        width: 22ch;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: transparent;
+    }
+
+    to {
+        border-color: #E6FFFA;
+    }
+}
+
+header h5 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 2s 0.5s forwards;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #E6FFFA;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+nav a:hover {
+    text-shadow: 0 0 5px #e6fffaca, 0 0 10px #E6FFFA;
+    transform: scale(1.1);
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #a19a91e3;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    visibility: visible;
+    width: 100%;
+}
+
+nav a.active {
+    color: #a19a91e3;
+    font-weight: bold;
+    text-shadow: 0 0 10px #a19a91e3, 0 0 20px #a19a91e3;
+    border-bottom: 2px solid #a19a91e3;
+}
+
+/* Card Animations */
+.cards-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    background-color: rgb(77, 75, 75);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    animation: bounceIn 0.5s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.card p {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card ul li {
+    margin-bottom: 10px;
+}
+
+.card ul li a {
+    text-decoration: none;
+    color: #E6FFFA;
+}
+
+/* Separator Line */
+.separator {
+    width: 100%;
+    max-width: 900px;
+    border: none;
+    height: 2px;
+    background-color: #a19a91e3;
+    margin: 20px 0;
+    opacity: 0;
+    animation: grow 1.5s 0.5s forwards;
+}
+
+@keyframes grow {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+/* Section */
+section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+section p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #1A202C;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    animation: fadeInUp 2s;
+}
+
+footer p {
+    font-size: 16px;
+    color: #bec6c4;
+}
+
+footer a {
+    color: #E6FFFA;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+footer a:hover {
+    text-shadow: 0 0 5px #E6FFFA, 0 0 10px #E6FFFA;
+    transform: scale(1.1);
+}
+
+.aboutme {
+    margin-bottom: 5rem;
+}
+
+.personal-info-card ul li span:hover,  .personal-info-card ul li span a:hover{
+    color: #ccc !important;
+    cursor: pointer !important;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+/* Animated text */
+.animated-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: move-text 25s linear infinite;
+}
+
+@keyframes move-text {
+    0% {
+        transform: translateX(75%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Education Section Fix */
+.education-card .card {
+    text-align: left;
+}
+
+.education-card .card p,
+.education-card .card ul {
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+    }
+
+    .separator {
+        width: 90%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    header h5 {
+        font-size: 16px;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+}
+
+.card a{
+    text-decoration: none;
+    color: #E6FFFA;
+}
+
+/* Skills Section */
+.skills-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Card Styling */
+.skill-card {
+    background-color: rgb(77, 75, 75);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card h3 {
+    margin-bottom: 15px;
+    color: #E6FFFA;
+    font-size: 24px;
+}
+
+.skill-card ul {
+    list-style-type: none;
+    color: #E6FFFA;
+}
+
+.skill-card ul li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.skill-card ul li {
+    position: relative;
+    padding-left: 10px;
+    /* For a bit of space before the list items */
+    cursor: pointer;
+    /* Changes cursor to pointer on hover */
+    transition: color 0.3s ease;
+    /* Smooth transition for color */
+    color: #E6FFFA;
+    /* Initial color */
+}
+
+.skill-card ul li:hover {
+    color: #a19a91e3;
+    /* Change color on hover */
+}
+
+/* .skill-card ul li::before {
+    content: '•';
+    /* Add a custom bullet point */
+    /* color: #E6FFFA;
+    position: absolute;
+    left: 0;
+    transition: color 0.3s ease; */
+    /* Smooth transition for bullet color */
+/* } */ 
+
+.skill-card ul li:hover::before {
+    color: #a19a91e3;
+    /* Change bullet color on hover */
+}
+
+/* cards-section p */
+
+.cards-section p {
+    position: relative;
+    padding-left: 10px;
+    /* For a bit of space before the list items */
+    cursor: pointer;
+    /* Changes cursor to pointer on hover */
+    transition: color 0.3s ease;
+    /* Smooth transition for color */
+    color: #E6FFFA;
+    /* Initial color */
+}
+
+.cards-section p:hover {
+    color: #a19a91e3;
+    /* Change color on hover */
+}
+
+.card{
+    /* box-shadow: rgba(255, 255, 255, 0.844) 0px 5px 15px; */
+    /* border: 0; */
+    box-shadow: rgba(192, 191, 191, 0.934) 0px 2px 8px;
+}
+
+
+/* Projects Section */
+.projects-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: rgb(77, 75, 75);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    /* Center text within the card */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #E6FFFA;
+    font-size: 24px;
+}
+
+.card p {
+    font-size: 18px;
+    color: #E6FFFA;
+    margin-bottom: 20px;
+}
+
+/* View Button */
+.view-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #a19a91e3;
+    color: #E6FFFA;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.view-button:hover {
+    background-color: #E6FFFA;
+    color: #333;
+}
+
+/* Responsive Design for Projects Section */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Contact Section */
+section {
+    padding: 50px;
+}
+
+h2 {
+    font-size: 30px;
+    color: #E6FFFA;
+    margin-bottom: 40px;
+}
+
+/* Form Card */
+.form-card {
+    background-color: #1a1a1a;
+    border: 1px solid #a19a91;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Inputs */
+.form-input {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #2b2b2b;
+    color: #E6FFFA;
+    font-size: 16px;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #a19a91;
+}
+
+/* Submit Button */
+.submit-button {
+    background-color: #a19a91;
+    color: #E6FFFA;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #E6FFFA;
+    color: #333;
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+footer a {
+    color: #a19a91;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .form-card {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .submit-button {
+        width: 100%;
+    }
+}
+
+.about-me-card{
+    width: 80vw;
+    max-width: 600px;
+    margin: auto;
+}
+
+.moving-text{
+    max-width: 80vw;
+    padding: 0 1rem;
+    margin: auto;
+    margin-bottom: 2rem;
+}
